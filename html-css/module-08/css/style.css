@@ -1,0 +1,333 @@
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Montserrat Bold'), local('Montserrat-Bold'), url('../fonts/montserrat-v14-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/montserrat-v14-latin-700.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Roboto Light'), local('Roboto-Light'), url('../fonts/roboto-v20-latin-300.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/roboto-v20-latin-300.woff') format('woff');
+}
+
+ :root {
+    --main-font: 'Montserrat', sans-serif;
+    --secondary-font: 'Roboto', serif;
+    --main-font-weight: 700;
+    --secondary-font-weight: 300;
+    --color-title: #333333;
+    --color-text: #666666;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--main-font);
+    font-weight: var(--main-font-weight);
+    line-height: 1.2;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+button {
+    font-family: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.header {
+    background-image: url(../images/bg/phone-bg.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-color: #1a1915;
+    background-size: cover;
+    color: #fff;
+    padding-top: 20px;
+    min-height: 540px;
+}
+
+.container {
+    text-align: center;
+    width: 292px;
+    margin: 0 auto;
+}
+
+.navigation {
+    margin-bottom: 32px;
+}
+
+.autorization {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin-bottom: 108px;
+}
+
+.button {
+    font-size: 14px;
+    border: none;
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: color 0.2s linear;
+}
+
+.btn-signup {
+    border: 2px solid #ffffff;
+}
+
+.button:hover,
+.button:focus {
+    color: #ff4e50
+}
+
+.logo {
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.main-title {
+    font-size: 30px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.header-subtitle {
+    font-family: var(--secondary-font);
+    font-weight: var(--secondary-font-weight);
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+.header-subtitle-span {
+    display: block;
+}
+
+.big-button {
+    display: block;
+    width: 280px;
+    border-radius: 20px;
+    margin: 0 auto;
+    padding: 10px 0;
+    font-size: 14px;
+    border: 2px solid #ff4e50;
+    transition: all 0.2s linear;
+}
+
+.big-button-header {
+    background-color: #ff4e50;
+}
+
+.big-button-header:hover {
+    border: 2px solid #fff;
+}
+
+.big-button-section {
+    color: #ff4e50;
+}
+
+.big-button-section:hover {
+    background-color: #ff4e50;
+    color: #fff;
+}
+
+
+/* section partners */
+
+.partners {
+    padding: 70px 0 56px;
+}
+
+.section-title {
+    font-size: 22px;
+    color: var(--color-title);
+    margin-bottom: 18px;
+}
+
+.partner-list {
+    width: 220px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.img-block {
+    margin: 0 auto;
+    width: 122px;
+    height: 122px;
+    position: relative;
+    background-color: #fbfbfb;
+    margin-bottom: 22px;
+}
+
+.img-block img {
+    border-radius: 50%;
+}
+
+.img-block::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.icon-tv::before {
+    background-image: url(../images/icons/tv.png);
+    background-color: #ff4e50;
+}
+
+.icon-bottle::before {
+    background-image: url(../images/icons/bottle.png);
+    background-color: #ffa507;
+}
+
+.icon-tea::before {
+    background-image: url(../images/icons/tea.png);
+    background-color: #1cd7ad;
+}
+
+.icon-planer::before {
+    background-image: url(../images/icons/planer.png);
+    background-color: #4e73db;
+}
+
+.partner-name {
+    font-size: 14px;
+    color: var(--color-title);
+    margin-bottom: 20px;
+}
+
+.partner-about {
+    font-family: var(--secondary-font);
+    font-size: 14px;
+    font-weight: var(--secondary-font-weight);
+    color: var(--color-text);
+}
+
+@media screen and (min-width: 376px) {
+    .header {
+        background-image: url(../images/bg/tablet-bg.png);
+    }
+}
+
+@media screen and (max-width:679px) {
+    .partner-card:not(:last-child) {
+        margin-bottom: 28px;
+    }
+}
+
+@media screen and (min-width: 680px) {
+    .header {
+        min-height: 700px;
+        padding-top: 38px;
+    }
+    .container {
+        width: 660px;
+    }
+    .navigation {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 148px;
+    }
+    .autorization {
+        margin-bottom: 0;
+    }
+    .title-block {
+        width: 512px;
+        margin: 0 auto;
+    }
+    .main-title {
+        font-size: 52px;
+        margin-bottom: 38px;
+    }
+    .header-subtitle {
+        font-size: 24px;
+        margin-bottom: 38px;
+    }
+    .header-subtitle-span {
+        display: inline;
+    }
+    .big-button-header {
+        background-color: rgb(255, 78, 80);
+        width: 226px;
+    }
+    .big-button-section {
+        width: 198px;
+    }
+    .partners {
+        padding: 74px 0 40px;
+    }
+    .section-title {
+        margin-bottom: 36px;
+    }
+    .partner-list {
+        width: 492px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 38px;
+    }
+    .partner-card {
+        width: 236px;
+    }
+}
+
+@media screen and (min-width:680px) and (max-width: 959px) {
+    .partner-card:not(:nth-last-child(-n+2)) {
+        margin-bottom: 58px;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    .header {
+        background-image: url(../images/bg/desktop-bg.png);
+    }
+    .container {
+        width: 940px;
+    }
+    .partner-list {
+        width: 100%;
+    }
+    .partner-card {
+        width: 220px;
+    }
+    .partner-card:not(:nth-last-child(-n+4)) {
+        margin-bottom: 58px;
+    }
+}

@@ -1,0 +1,32 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+* ::before,
+* ::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul[class],
+ol[class] {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.clearfix::after {
+    display: table;
+    content: "";
+    clear: both;
+}

@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    width: 900px;
+    margin: 0 auto;
+}
+
+
+/* site navigation */
+
+.site-navigation {
+    margin: 0;
+    list-style: none;
+    padding: 77px 0 102px 0;
+    text-align: center;
+}
+
+.site-navigation li {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.site-navigation li:not(:last-child) {
+    margin-right: 106px;
+}
+
+.site-navigation li a {
+    text-decoration: none;
+    font-family: "Playfair Display";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #626262;
+    text-transform: uppercase;
+}
+
+.site-navigation li a:hover {
+    color: #03a9f4;
+}
+
+
+/* Articles list */
+
+.article-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+
+.article-list-item {
+    vertical-align: top;
+    display: inline-block;
+    width: 420px;
+    text-align: left;
+    margin-right: 60px;
+    margin-bottom: 130px;
+}
+
+.article-list-item:nth-child(2n) {
+    margin-right: 0;
+}
+
+.article-list-item:nth-last-child(-n+2) {
+    margin-bottom: 0;
+}
+
+.article-list-item img {
+    margin-bottom: 30px;
+}
+
+.article-list-item h3 {
+    font-family: "Ubuntu";
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.2;
+    color: #b4ad9e;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.article-list-item h2 {
+    font-family: "Playfair Display";
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.2;
+    color: #626262;
+    margin-bottom: 36px;
+}
+
+.article-list-item p {
+    font-family: "Playfair Display";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #626262;
+    margin-bottom: 0;
+}
+
+
+/* button */
+
+.button-conteiner {
+    text-align: center;
+    padding: 52px 0 70px 0;
+}
+
+.button-conteiner button {
+    font-family: "Playfair Display";
+    font-size: 20px;
+    line-height: 1.2;
+    color: #626262;
+    padding: 22px 34px;
+    cursor: pointer;
+}
