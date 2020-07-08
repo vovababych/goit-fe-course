@@ -5,7 +5,7 @@ console.log(`У Вас ${credits} кредитов`);
 console.log(`Стоимость одного дроида ${pricePerDroid} кредитов`);
 
 let amountDroids = prompt("Сколько дроидов Вы хотите купить?");
-// let totalPrice;
+
 if (amountDroids === null) {
   console.log("Отменено пользователем");
 } else {
