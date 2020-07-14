@@ -16,7 +16,7 @@ runTaskRef.addEventListener("click", function () {
     }
     numbers.push(+input);
   } while (input !== null);
-  if (numbers != 0) {
+  if (numbers.length > 0) {
     for (let number of numbers) {
       total += number;
     }
@@ -24,4 +24,5 @@ runTaskRef.addEventListener("click", function () {
   } else {
     console.log(`Массив пустой`);
   }
+  console.log(numbers);
 });
