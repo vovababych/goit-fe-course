@@ -4,19 +4,24 @@ const runTaskRef = document.querySelector(".run-task-06");
 runTaskRef.addEventListener("click", function () {
   let input;
   const numbers = [];
-  let total;
+  let total = 0;
   do {
     input = prompt("Введите число");
-    // if (input === null) {
-    //   console.log(`Отменено пользователем`);
-    //   break;
-    // }
-    // console.log(input);
-    numbers.push(input);
-    console.log(numbers);
+    if (input === null) {
+      break;
+    }
+    if (Number.isNaN(Number(input))) {
+      alert("Было введено не число, попробуйте еще раз");
+      continue;
+    }
+    numbers.push(+input);
   } while (input !== null);
-  for (let number of numbers) {
-    total += number;
+  if (numbers != 0) {
+    for (let number of numbers) {
+      total += number;
+    }
+    console.log(`Общая сумма чисел равна ${total}`);
+  } else {
+    console.log(`Массив пустой`);
   }
-  console.log(total);
 });
