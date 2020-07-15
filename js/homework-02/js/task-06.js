@@ -24,5 +24,4 @@ runTaskRef.addEventListener("click", function () {
   } else {
     console.log(`Массив пустой`);
   }
-  console.log(numbers);
 });
