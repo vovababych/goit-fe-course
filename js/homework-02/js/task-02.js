@@ -3,9 +3,7 @@
 const runTaskRef = document.querySelector(".run-task-02");
 runTaskRef.addEventListener("click", function () {
   const calculateEngravingPrice = function (message, pricePerWord) {
-    const inputMessage = message.split(" ");
-    const price = pricePerWord * inputMessage.length;
-    return price;
+    return message.split(" ").length * pricePerWord;
   };
 
   console.log(
