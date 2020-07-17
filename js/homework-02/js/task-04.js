@@ -3,10 +3,7 @@
 const runTaskRef = document.querySelector(".run-task-04");
 runTaskRef.addEventListener("click", () => {
   const formatString = function (string) {
-    if (string.length > 40) {
-      return string.slice(0, 40) + "...";
-    }
-    return string;
+    return (string = string.length > 40 ? `${string.slice(0, 40)}...` : string);
   };
 
   console.log(

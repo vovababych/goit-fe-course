@@ -1,7 +1,6 @@
 "use strict";
 
 const runTaskRef = document.querySelector(".run-task-03");
-// console.log(runTaskRef);
 runTaskRef.addEventListener("click", function () {
   const findLongestWord = function (string) {
     const words = string.split(" ");

@@ -4,13 +4,9 @@ const runTaskRef = document.querySelector(".run-task-05");
 runTaskRef.addEventListener("click", () => {
   const checkForSpam = function (message) {
     const messageLowerCase = message.toLowerCase();
-    if (
-      messageLowerCase.includes("sale") ||
-      messageLowerCase.includes("spam")
-    ) {
-      return true;
-    }
-    return false;
+    return (
+      messageLowerCase.includes("sale") || messageLowerCase.includes("spam")
+    );
   };
   console.log(checkForSpam("Latest technology news"));
   console.log(checkForSpam("JavaScript weekly newsletter"));

@@ -5,7 +5,8 @@ runTaskRef.addEventListener("click", function () {
   let input;
   const numbers = [];
   let total = 0;
-  do {
+
+  while (input !== null) {
     input = prompt("Введите число");
     if (input === null) {
       break;
@@ -15,7 +16,8 @@ runTaskRef.addEventListener("click", function () {
       continue;
     }
     numbers.push(+input);
-  } while (input !== null);
+  }
+
   if (numbers.length > 0) {
     for (let number of numbers) {
       total += number;
