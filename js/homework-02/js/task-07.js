@@ -9,18 +9,20 @@ runTaskRef.addEventListener("click", function () {
   };
 
   const isLoginUnique = function (allLogins, login) {
-    return !allLogins.includes(login);
+    return allLogins.includes(login);
   };
 
   const addLogin = function (allLogins, login) {
     if (!isLoginValid(login)) {
       return `Ошибка! Логин должен быть от 4 до 16 символов`;
-    } else if (isLoginUnique(allLogins, login)) {
-      logins.push(login);
-      return `Логин успешно добавлен!`;
-    } else {
+    }
+
+    if (isLoginUnique(allLogins, login)) {
       return `Такой логин уже используется!`;
     }
+
+    logins.push(login);
+    return `Логин успешно добавлен!`;
   };
 
   /*
