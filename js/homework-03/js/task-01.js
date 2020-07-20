@@ -14,6 +14,6 @@ runTaskRef.addEventListener("click", function () {
   user.premium = false;
   const users = Object.keys(user);
   for (let value of users) {
-    console.log(`${value}: ${user[value]}`);
+    console.log(`${value}: \t${user[value]}`);
   }
 });

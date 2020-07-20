@@ -5,7 +5,7 @@ runTaskRef.addEventListener("click", function () {
   const countTotalSalary = function (employees) {
     const arrSalary = Object.values(employees);
     let total = 0;
-    for (let salary of arrSalary) {
+    for (const salary of arrSalary) {
       total += salary;
     }
     return total;

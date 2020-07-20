@@ -12,10 +12,9 @@ runTaskRef.addEventListener("click", () => {
     const arrProp = [];
 
     for (const product of arr) {
-      if (product[prop] === undefined) {
-        break;
+      if (product[prop] !== undefined) {
+        arrProp.push(product[prop]);
       }
-      arrProp.push(product[prop]);
     }
     return arrProp;
   };
