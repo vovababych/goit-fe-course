@@ -19,7 +19,6 @@ runTaskRef.addEventListener("click", () => {
         type: type,
       };
       newTransaction.id = this.transactions.length + 1;
-
       return newTransaction;
     },
 
@@ -31,15 +30,15 @@ runTaskRef.addEventListener("click", () => {
     },
 
     withdraw(amount) {
-      this.transactions.push(
-        this.createTransaction(amount, Transaction.WITHDRAW)
-      );
       if (this.balance < amount) {
         return console.log(
-          `снятие такой суммы не возможно, недостаточно средств`
+          `снятие такой суммы не возможно, недостаточно средств. \n Баланс - ${this.balance} y.e.`
         );
       }
       this.balance -= amount;
+      this.transactions.push(
+        this.createTransaction(amount, Transaction.WITHDRAW)
+      );
     },
 
     getBalance() {
@@ -65,25 +64,4 @@ runTaskRef.addEventListener("click", () => {
       return totalAmount;
     },
   };
-  //   console.log(account.createTransaction(10, Transaction.DEPOSIT));
-  //   console.log(account.createTransaction(10, Transaction.WITHDRAW));
-  account.deposit(100);
-  account.deposit(100);
-  account.deposit(100);
-  account.deposit(100);
-  //   console.log(account.transactions);
-  // console.log(account.deposit(100));
-  //   console.log(account.deposit(200));
-  //   console.log(account.deposit(300));
-  //   console.log(account.deposit(400));
-  //   console.log(account.transactions);
-  account.withdraw(50);
-  account.withdraw(50);
-  account.withdraw(50);
-
-  console.log(account.getBalance());
-  console.log(account.transactions);
-  console.log(account.getTransactionDetails(7));
-  //   console.log(account.getTransactionTotal("deposit"));
-  //   console.log(account.getTransactionTotal("withdraw"));
 });
