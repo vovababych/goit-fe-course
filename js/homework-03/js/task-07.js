@@ -2,67 +2,88 @@
 
 const runTaskRef = document.querySelector(".run-task-07");
 runTaskRef.addEventListener("click", () => {
-  // Напиши скрипт управления личным кабинетом интернет банка.Есть объект account в котором необходимо реализовать методы для работы с балансом и историей транзакций.
-
-  /*
-   * Типов транзацкий всего два.
-   * Можно положить либо снять деньги со счета.
-   */
   const Transaction = {
     DEPOSIT: "deposit",
     WITHDRAW: "withdraw",
   };
 
-  /*
-   * Каждая транзакция это объект со свойствами: id, type и amount
-   */
-
   const account = {
-    // Текущий баланс счета
     balance: 0,
 
-    // История транзакций
     transactions: [],
 
-    /*
-     * Метод создает и возвращает объект транзакции.
-     * Принимает сумму и тип транзакции.
-     */
-    createTransaction(amount, type) {},
+    createTransaction(amount, type) {
+      const newTransaction = {
+        id: 0,
+        amount: amount,
+        type: type,
+      };
+      newTransaction.id = this.transactions.length + 1;
 
-    /*
-     * Метод отвечающий за добавление суммы к балансу.
-     * Принимает сумму танзакции.
-     * Вызывает createTransaction для создания объекта транзакции
-     * после чего добавляет его в историю транзакций
-     */
-    deposit(amount) {},
+      return newTransaction;
+    },
 
-    /*
-     * Метод отвечающий за снятие суммы с баланса.
-     * Принимает сумму танзакции.
-     * Вызывает createTransaction для создания объекта транзакции
-     * после чего добавляет его в историю транзакций.
-     *
-     * Если amount больше чем текущий баланс, выводи сообщение
-     * о том, что снятие такой суммы не возможно, недостаточно средств.
-     */
-    withdraw(amount) {},
+    deposit(amount) {
+      this.balance += amount;
+      this.transactions.push(
+        this.createTransaction(amount, Transaction.DEPOSIT)
+      );
+    },
 
-    /*
-     * Метод возвращает текущий баланс
-     */
-    getBalance() {},
+    withdraw(amount) {
+      this.transactions.push(
+        this.createTransaction(amount, Transaction.WITHDRAW)
+      );
+      if (this.balance < amount) {
+        return console.log(
+          `снятие такой суммы не возможно, недостаточно средств`
+        );
+      }
+      this.balance -= amount;
+    },
 
-    /*
-     * Метод ищет и возвращает объект транзации по id
-     */
-    getTransactionDetails(id) {},
+    getBalance() {
+      return this.balance;
+    },
 
-    /*
-     * Метод возвращает количество средств
-     * определенного типа транзакции из всей истории транзакций
-     */
-    getTransactionTotal(type) {},
+    getTransactionDetails(id) {
+      for (const transaction of this.transactions) {
+        if (transaction.id === id) {
+          return transaction;
+        }
+      }
+      return console.log(`Транзакции не существует`);
+    },
+
+    getTransactionTotal(type) {
+      let totalAmount = 0;
+      for (const transaction of this.transactions) {
+        if (type === transaction.type) {
+          totalAmount += transaction.amount;
+        }
+      }
+      return totalAmount;
+    },
   };
+  //   console.log(account.createTransaction(10, Transaction.DEPOSIT));
+  //   console.log(account.createTransaction(10, Transaction.WITHDRAW));
+  account.deposit(100);
+  account.deposit(100);
+  account.deposit(100);
+  account.deposit(100);
+  //   console.log(account.transactions);
+  // console.log(account.deposit(100));
+  //   console.log(account.deposit(200));
+  //   console.log(account.deposit(300));
+  //   console.log(account.deposit(400));
+  //   console.log(account.transactions);
+  account.withdraw(50);
+  account.withdraw(50);
+  account.withdraw(50);
+
+  console.log(account.getBalance());
+  console.log(account.transactions);
+  console.log(account.getTransactionDetails(7));
+  //   console.log(account.getTransactionTotal("deposit"));
+  //   console.log(account.getTransactionTotal("withdraw"));
 });
