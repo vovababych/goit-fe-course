@@ -14,11 +14,10 @@ runTaskRef.addEventListener("click", () => {
 
     createTransaction(amount, type) {
       const newTransaction = {
-        id: 0,
+        id: this.transactions.length + 1,
         amount: amount,
         type: type,
       };
-      newTransaction.id = this.transactions.length + 1;
       return newTransaction;
     },
 

@@ -3,15 +3,12 @@
 const runTaskRef = document.querySelector(".run-task-03");
 runTaskRef.addEventListener("click", () => {
   const findBestEmployee = function (employees) {
-    const arrEmployees = Object.keys(employees);
-    const arrTasks = Object.values(employees);
-    let bestEmployee = arrEmployees[0];
-    let mostTasks = arrTasks[0];
-
-    for (let i = 1; i < arrTasks.length; i += 1) {
-      if (mostTasks < arrTasks[i]) {
-        mostTasks = arrTasks[i];
-        bestEmployee = arrEmployees[i];
+    let mostTasks = 0;
+    let bestEmployee;
+    for (let employee in employees) {
+      if (employees[employee] > mostTasks) {
+        mostTasks = employees[employee];
+        bestEmployee = employee;
       }
     }
     return bestEmployee;
