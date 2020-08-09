@@ -6,11 +6,11 @@ document.querySelector(".run-task-05").addEventListener("click", function () {
       console.log(car);
     }
 
-    constructor({ maxSpeed, speed = 0, isOn = false, distance = 0, price }) {
+    constructor({ maxSpeed, price }) {
       this.maxSpeed = maxSpeed;
-      this.speed = speed;
-      this.isOn = isOn;
-      this.distance = distance;
+      this.speed = 0;
+      this.isOn = false;
+      this.distance = 0;
       this._price = price;
     }
     get price() {
