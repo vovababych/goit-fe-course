@@ -12,10 +12,9 @@ document.querySelector(".run-task-03").addEventListener("click", function () {
       this.items.push(item);
     }
     removeItem(item) {
-      for (let i = 0; i < this.items.length; i += 1) {
-        if (this.items[i] === item) {
-          return this.items.splice(i, 1);
-        }
+      const index = this.items.indexOf(item);
+      if (index > -1) {
+        return this.items.splice(index, 1);
       }
     }
   }
