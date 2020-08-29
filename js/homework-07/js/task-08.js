@@ -4,39 +4,50 @@ const inputNumberRef = document.querySelector("input[type='number']");
 const btnRenderRef = document.querySelector("button[data-action='render']");
 const btnDestroyRef = document.querySelector("button[data-action='destroy']");
 const boxesRef = document.querySelector("#boxes");
+const defaultSize = 30;
 
 btnRenderRef.addEventListener("click", onCreateBox);
 btnDestroyRef.addEventListener("click", onDeleteBox);
 
 function onCreateBox() {
-  const amount = inputNumberRef.value;
-  createBox(amount);
+  createBox(inputNumberRef.value);
 }
 
 function onDeleteBox() {
-  Array.from(boxesRef.children).forEach((element) => {
-    element.remove();
-  });
-  inputNumberRef.value = "";
+  boxesRef.innerHTML = "";
+  cleanInput();
 }
 
 function createBox(amount) {
-  let size = 30;
   for (let i = 0; i < amount; i += 1) {
-    const boxRef = document.createElement("div");
-    boxRef.classList.add("box");
-    boxRef.style.backgroundColor = randomBgColor();
-    boxRef.style.height = size + "px";
-    boxRef.style.width = size + "px";
-    size += 10;
-    boxesRef.appendChild(boxRef);
+    const size = defaultSize + i * 10;
+    createBoxBySize(size);
   }
+  cleanInput();
 }
 
-function randomBgColor() {
-  const r = Math.round(Math.random() * 256);
-  const g = Math.round(Math.random() * 256);
-  const b = Math.round(Math.random() * 256);
+function createBoxBySize(size) {
+  const boxRef = document.createElement("div");
+  boxRef.classList.add("box");
+  boxRef.setAttribute(
+    "style",
+    `width:${size}px; height:${size}px; background-color:${getRandomBgColor()}`
+  );
+  boxesRef.appendChild(boxRef);
+}
+
+function cleanInput() {
+  inputNumberRef.value = "";
+}
+
+function getRandomBgColor() {
+  const r = getRandomNum();
+  const g = getRandomNum();
+  const b = getRandomNum();
   const bgColor = `rgb(${r}, ${g}, ${b})`;
   return bgColor;
+}
+
+function getRandomNum() {
+  return Math.round(Math.random() * 256);
 }
