@@ -9,6 +9,7 @@ const modalBtnRef = document.querySelector(
 );
 const modalImgRef = document.querySelector(".lightbox__image");
 let index = 0;
+let currentIndex = 0;
 
 galleryRef.addEventListener("click", onOpenModal);
 modalBtnRef.addEventListener("click", onCloseModal);
@@ -49,6 +50,8 @@ function onOpenModal() {
   modalImgRef.src = event.target.dataset.source;
   modalImgRef.alt = event.target.alt;
 
+  currentIndex = +event.target.dataset.index;
+
   const activeIndex = +event.target.dataset.index;
   openModal();
   window.addEventListener("keydown", onPressEscape);
@@ -77,9 +80,9 @@ function onPressEscape() {
 }
 
 function onClickBg() {
-  console.log(
-    "Вот здесь, когда клацаешь по бекграунду почему то event.target !== (event.currentTarget"
-  );
+  // console.log(
+  //   "Вот здесь, когда клацаешь по бекграунду почему то event.target !== (event.currentTarget"
+  // );
   if (event.target.nodeName !== "IMG") {
     onCloseModal();
   }
@@ -88,17 +91,32 @@ function onClickBg() {
 function onClickArrow(event) {
   event.preventDefault();
   if (event.code === "ArrowRight") {
-    // next();
-    console.log("стрелка направо");
-    console.log("Вот здесь тоже какойто странный event.target");
+    if (currentIndex + 1 === gallery.length) {
+      currentIndex = 0;
+      return (modalImgRef.src = gallery[currentIndex].original);
+    }
+    modalImgRef.src = gallery[(currentIndex += 1)].original;
   }
+
   if (event.code === "ArrowLeft") {
-    // prev();
-    console.log("стрелка налево");
-    console.log(event.target);
+    if (currentIndex - 1 < 0) {
+      currentIndex = gallery.length;
+    }
+    modalImgRef.src = gallery[(currentIndex -= 1)].original;
   }
 }
 
-// function next() {
-// }
+// function next() {}
 // function prev() {}
+
+// const country = [
+//   { id: 1, title: "Afrika" },
+//   { id: 2, title: "Antarctika" },
+//   { id: 3, title: "Asia" },
+//   { id: 4, title: "America" },
+// ];
+
+// const idx = country.findIndex((el) => el.title === "Asia");
+// console.log(idx);
+// const result = country.find((el, i) => i === idx);
+// console.log(result);
