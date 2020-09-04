@@ -24,24 +24,57 @@ function createGallery() {
 }
 
 function createNode(picture) {
-  const itemImgRef = document.createElement("li");
-  itemImgRef.classList.add("gallery__item");
+  // const itemImgRef = document.createElement("li");
+  // itemImgRef.classList.add("gallery__item");
 
-  const linkImgRef = document.createElement("a");
-  linkImgRef.classList.add("gallery__link");
-  linkImgRef.href = picture.original;
+  // const linkImgRef = document.createElement("a");
+  // linkImgRef.classList.add("gallery__link");
+  // linkImgRef.href = picture.original;
 
-  const imgRef = document.createElement("img");
-  imgRef.classList.add("gallery__image");
-  imgRef.src = picture.preview;
-  imgRef.setAttribute("data-source", picture.original);
-  imgRef.setAttribute("data-index", index++);
+  // const imgRef = document.createElement("img");
+  // imgRef.classList.add("gallery__image");
+  // imgRef.src = picture.preview;
+  // imgRef.setAttribute("data-source", picture.original);
+  // imgRef.setAttribute("data-index", index++);
+  // imgRef.alt = picture.description;
 
-  imgRef.alt = picture.description;
+  // linkImgRef.appendChild(imgRef);
+  // itemImgRef.appendChild(linkImgRef);
+  // console.dir(imgRef);
+  // return itemImgRef;
 
-  linkImgRef.appendChild(imgRef);
-  itemImgRef.appendChild(linkImgRef);
-  return itemImgRef;
+  const itemAttrs = {
+    class: "gallery__item",
+  };
+
+  const linkAttrs = {
+    class: "gallery__link",
+    href: picture.original,
+  };
+
+  const imgAttrs = {
+    class: "gallery__image",
+    src: picture.preview,
+    "data-source": picture.original,
+    "data-index": index++,
+
+    alt: picture.description,
+  };
+
+  const li = createElement("li", itemAttrs);
+  const a = createElement("a", linkAttrs);
+  const img = createElement("img", imgAttrs);
+  li.appendChild(a);
+  a.appendChild(img);
+  return li;
+}
+
+function createElement(name, attrs) {
+  const element = document.createElement(name);
+  Object.entries(attrs).forEach(([key, value]) => {
+    return element.setAttribute(key, value);
+  });
+  return element;
 }
 
 function onOpenModal() {
@@ -109,14 +142,14 @@ function onClickArrow(event) {
 // function next() {}
 // function prev() {}
 
-// const country = [
-//   { id: 1, title: "Afrika" },
-//   { id: 2, title: "Antarctika" },
-//   { id: 3, title: "Asia" },
-//   { id: 4, title: "America" },
-// ];
+const country = [
+  { id: 1, title: "Afrika" },
+  { id: 2, title: "Antarctika" },
+  { id: 3, title: "Asia" },
+  { id: 4, title: "America" },
+];
 
-// const idx = country.findIndex((el) => el.title === "Asia");
-// console.log(idx);
-// const result = country.find((el, i) => i === idx);
-// console.log(result);
+const idx = country.findIndex((el) => el.title === "Asia");
+console.log(idx); // 2
+const result = country.find((el, i) => i === idx);
+console.log(result); // {id: 3, title: "Asia"}
