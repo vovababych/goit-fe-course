@@ -8,6 +8,7 @@ const modalBtnRef = document.querySelector(
   "button[data-action='close-lightbox']"
 );
 const modalImgRef = document.querySelector(".lightbox__image");
+
 let index = 0;
 let currentIndex = 0;
 
@@ -79,17 +80,15 @@ function createElement(name, attrs) {
 
 function onOpenModal() {
   event.preventDefault();
+
   if (event.target.nodeName !== "IMG") return;
   modalImgRef.src = event.target.dataset.source;
   modalImgRef.alt = event.target.alt;
-
   currentIndex = +event.target.dataset.index;
 
-  const activeIndex = +event.target.dataset.index;
   openModal();
-  window.addEventListener("keydown", onPressEscape);
+  window.addEventListener("keydown", onPressKey);
   modalRef.addEventListener("click", onClickBg);
-  window.addEventListener("keydown", onClickArrow);
 }
 
 function openModal() {
@@ -100,15 +99,39 @@ function onCloseModal() {
   modalRef.classList.remove("is-open");
   modalImgRef.src = "";
   modalImgRef.alt = "";
-  window.removeEventListener("keydown", onPressEscape);
-  window.removeEventListener("click", onClickBg);
   modalBtnRef.removeEventListener("click", onCloseModal);
-  modalRef.removeEventListener("keydown", onClickArrow);
+  window.removeEventListener("keydown", onPressKey);
+  window.removeEventListener("click", onClickBg);
 }
 
-function onPressEscape() {
+function onPressKey() {
+  const arrImages = Array.from(document.querySelectorAll(".gallery__image"));
+
   if (event.code === "Escape") {
     onCloseModal();
+  }
+
+  if (event.code === "ArrowRight") {
+    nextImg();
+  }
+
+  if (event.code === "ArrowLeft") {
+    prevImg();
+  }
+
+  function nextImg() {
+    if (currentIndex + 1 === arrImages.length) {
+      currentIndex = 0;
+      return (modalImgRef.src = arrImages[currentIndex].dataset.source);
+    }
+    modalImgRef.src = arrImages[(currentIndex += 1)].dataset.source;
+  }
+
+  function prevImg() {
+    if (currentIndex - 1 < 0) {
+      currentIndex = arrImages.length;
+    }
+    modalImgRef.src = arrImages[(currentIndex -= 1)].dataset.source;
   }
 }
 
@@ -120,36 +143,3 @@ function onClickBg() {
     onCloseModal();
   }
 }
-
-function onClickArrow(event) {
-  event.preventDefault();
-  if (event.code === "ArrowRight") {
-    if (currentIndex + 1 === gallery.length) {
-      currentIndex = 0;
-      return (modalImgRef.src = gallery[currentIndex].original);
-    }
-    modalImgRef.src = gallery[(currentIndex += 1)].original;
-  }
-
-  if (event.code === "ArrowLeft") {
-    if (currentIndex - 1 < 0) {
-      currentIndex = gallery.length;
-    }
-    modalImgRef.src = gallery[(currentIndex -= 1)].original;
-  }
-}
-
-// function next() {}
-// function prev() {}
-
-const country = [
-  { id: 1, title: "Afrika" },
-  { id: 2, title: "Antarctika" },
-  { id: 3, title: "Asia" },
-  { id: 4, title: "America" },
-];
-
-const idx = country.findIndex((el) => el.title === "Asia");
-console.log(idx); // 2
-const result = country.find((el, i) => i === idx);
-console.log(result); // {id: 3, title: "Asia"}
