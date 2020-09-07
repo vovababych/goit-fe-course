@@ -9,7 +9,6 @@ const modalBtnRef = document.querySelector(
 );
 const modalImgRef = document.querySelector(".lightbox__image");
 
-let index = 0;
 let currentIndex = 0;
 
 galleryRef.addEventListener("click", onOpenModal);
@@ -18,13 +17,13 @@ modalBtnRef.addEventListener("click", onCloseModal);
 createGallery();
 
 function createGallery() {
-  const arr = gallery.map((picture) => {
-    return createNode(picture);
+  const arr = gallery.map((picture, index) => {
+    return createNode(picture, index);
   });
   galleryRef.append(...arr);
 }
 
-function createNode(picture) {
+function createNode(picture, index) {
   // const itemImgRef = document.createElement("li");
   // itemImgRef.classList.add("gallery__item");
 
@@ -36,7 +35,7 @@ function createNode(picture) {
   // imgRef.classList.add("gallery__image");
   // imgRef.src = picture.preview;
   // imgRef.setAttribute("data-source", picture.original);
-  // imgRef.setAttribute("data-index", index++);
+  // imgRef.setAttribute("data-index", index);
   // imgRef.alt = picture.description;
 
   // linkImgRef.appendChild(imgRef);
@@ -57,7 +56,7 @@ function createNode(picture) {
     class: "gallery__image",
     src: picture.preview,
     "data-source": picture.original,
-    "data-index": index++,
+    "data-index": index,
 
     alt: picture.description,
   };
