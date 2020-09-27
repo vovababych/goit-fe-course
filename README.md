@@ -21,8 +21,6 @@
 
 ## js
 
- - [ссылка на исходные файлы](https://github.com/vovababych/goit-fe-course/tree/master/js/homework-01)
-
 - [module-01](https://vovababych.github.io/goit-fe-course/js/homework-01/) - [ссылка на исходные файлы](https://github.com/vovababych/goit-fe-course/tree/master/js/homework-01)
 - [module-02](https://vovababych.github.io/goit-fe-course/js/homework-02/) - [ссылка на исходные файлы](https://github.com/vovababych/goit-fe-course/tree/master/js/homework-02)
 - [module-03](https://vovababych.github.io/goit-fe-course/js/homework-03/) - [ссылка на исходные файлы](https://github.com/vovababych/goit-fe-course/tree/master/js/homework-03)
