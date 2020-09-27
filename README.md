@@ -1,8 +1,5 @@
 # goit-fe-course
 
-<hr/>
-<hr/>
-
 ## html
 
 - [module-01-02](https://vovababych.github.io/goit-fe-course/html-css/module-01-02/index.html)
